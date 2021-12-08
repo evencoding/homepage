@@ -14,9 +14,9 @@ export const shortCutState = atom<ISourtCutState>({
   default: localData
     ? JSON.parse(localData)
     : {
-        "Board 1": [],
-        "Board 2": [],
-        "Board 3": [],
-        "Board 4": [],
+        "Board 1": [{ name: "Naver", link: "https://naver.com/" }],
+        "Board 2": [{ name: "Google", link: "https://google.com/" }],
+        "Board 3": [{ name: "GitHub", link: "https://github.com/" }],
+        "Board 4": [{ name: "Velog", link: "https://velog.io/" }],
       },
 });

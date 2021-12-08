@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 const GoogleSearch = styled.div`
   text-align: center;
-  padding-top: 100px;
+  padding-top: 8vh;
   margin-bottom: 40px;
 `;
 

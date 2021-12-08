@@ -16,6 +16,11 @@ const Wrapper = styled.div`
   bottom: 25px;
 `;
 
+const Buttons = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
 const Sbutton = styled.button`
   margin-right: 25px;
   border-radius: 10px;
@@ -25,6 +30,9 @@ const Sbutton = styled.button`
   color: white;
   &:hover {
     cursor: pointer;
+  }
+  &:first-child {
+    margin-bottom: 15px;
   }
 `;
 
@@ -108,6 +116,14 @@ function AddDelete() {
   const onClickDisplayBtn = () => {
     setDisplayForm((current) => !current);
   };
+  console.log(shortCuts);
+  const onClickAddBoard = () => {
+    const newBoardName = `Board ${Object.keys(shortCuts).length + 1}`;
+    setShortCuts({
+      ...shortCuts,
+      [newBoardName]: [],
+    });
+  };
   const onSubmit = ({ name, link }: ISubmitProps) => {
     const keys = Object.keys(shortCuts);
     for (let i = 0; i < keys.length; i++) {
@@ -140,7 +156,10 @@ function AddDelete() {
   };
   return (
     <Wrapper>
-      <Sbutton onClick={onClickDisplayBtn}>바로가기 추가</Sbutton>
+      <Buttons>
+        <Sbutton onClick={onClickDisplayBtn}>바로가기 추가</Sbutton>
+        {/* <Sbutton onClick={onClickAddBoard}>보드 추가</Sbutton> */}
+      </Buttons>
       {displayForm ? (
         <AddForm>
           <Error>{error}</Error>
